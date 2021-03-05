@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	string s;
+	cin >> s;
+	sort(s.begin(), s.end());
+	int cnt = 0;
+	for(int i = 0; i < s.size(); i++){
+		if(s[i] != s[i+1]){
+			cnt++;
+		}
+	}
+	if(cnt % 2 == 0){
+		cout << "CHAT WITH HER!";
+	} else{
+		cout << "IGNORE HIM!";
+	}
+	cout << "\n";
+	return 0;
+}
