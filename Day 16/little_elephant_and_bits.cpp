@@ -1,26 +1,32 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
-typedef long long ll;
 using namespace std;
 
-int main() {
-    freopen("output.txt", "w", stdout);
+#define pb push_back
+#define mp make_pair
+typedef long long Long;
+void faster(){
+  ios::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+}
 
-    string a;
-    cin >> a;
+const int N = 1e6;
 
-    bool flag = true;
-    for (int i=0; i<a.size(); i++) {
-        if (a[i] == '0' && flag) {
-            flag = false;
-            continue;
-        }
-
-        if (i == a.size()-1 && flag)
-            break;
-
-        cout << a[i];
+int main()
+{
+  faster();
+  int tc, ca = 0;
+  string s;
+  cin >> s;
+  int len = s.size();
+  int cut = len-1;
+  for (int i = 0;i < len;i++){
+    if (s[i]==48){
+      cut = i;
+      break;
     }
-    cout << endl;
-    return 0;
+  }
+  s.erase(s.begin()+cut);
+  cout << s << '\n';
+  return 0;
 }
