@@ -1,18 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define ar array
-
 int main() {
-	ios::sync_with_stdio(0);
-	cin.tie(0);
-	
-	int t;
-	cin >> t;
-	while(t--) {
-		ll a, b, c;
-		cin >> a >> b >> c;
-		cout << max({a, b, c})+1 << "\n";
-	}
+    const int N = 2 * 100 * 1000 + 10;
+    int n, k;
+    int a[N];
+
+    cin >> n >> k;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    int minsum, ans, sum = 0;
+    for (int i = 0; i < k; i++) {
+        sum += a[i];
+    }
+    
+    minsum = sum;
+    ans = 0;
+
+    for (int i = 1; i < n-k+1; i++) {
+        sum -= a[i-1];
+        sum += a[i+k-1];
+        if (sum < minsum) {
+            ans = i;
+            minsum = sum;
+        }
+    }
+    
+    cout << 1+ans << endl;
+    return 0;
 }
