@@ -2,13 +2,13 @@
 * Problem - https://codeforces.com/problemset/problem/499/A
 */
 
-#include <bits/stc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 typedef long long int ll;
 
 int main() {
-	ll bestMoments, passButton, atTheMoment = 0;
+	ll bestMoments, passButton, atTheMoment = 1;
 	cin >> bestMoments >> passButton;
 
 	vector<pair<ll, ll> > timeBestMoments;
@@ -22,12 +22,11 @@ int main() {
 
 	ll watched = 0;
 	for (ll i = 0; i < bestMoments; i++) {
-		while (atTheMoment + passButton <= timeBestMoments[i].first()) {
+		while (atTheMoment + passButton <= timeBestMoments[i].first)
 			atTheMoment += passButton;
-		}
 
-		watched += timeBestMoments[i].second() - atTheMoment;
-		atTheMoment = timeBestMoments[i].second;
+		watched += timeBestMoments[i].second - atTheMoment + 1;
+		atTheMoment = timeBestMoments[i].second + 1;
 	}
 
 	cout << watched << endl;
