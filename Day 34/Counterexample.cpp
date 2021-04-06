@@ -2,30 +2,27 @@
 * Problem - https://codeforces.com/problemset/problem/483/A
 */
 
-#include <bits/stdc++.h>
-#include<algorithm>
+#include<bits/stdc++.h>
+#define vi vector<int>
+#define ll long long
+#define pi pair<int, int>
+#define f first
+#define s second
+#define pb push_back
+#define mp make_pair
+#define rep(i, a, b) for(int i=a; i<=b; i++)
+#define repn(i, n) for(int i=0; i<(int)n; i++)
+
 using namespace std;
-int main() {
-long long int l,r;
-cin>>l>>r;
-if(r-l<2){
-  cout<<"-1"<<endl;
-  return 0;
-}
-int flag =0;
-for(long long int  i = l; i <= r; i++){
-  for(long long int  j = i+1; j <= r; j++){
-    for(long long int k = j+1; k <= r; k++){
-      if(gcd(i,j) == 1 && gcd(j,k) == 1 && gcd(i,k) != 1){
-        cout << i << " " << j << " " << k << "\n";
-        flag=1;
-        break;
-      }
-    }
-  if(flag==1){break;}
-  }
-if(flag==1){break;}
-}
-if(flag!=1){cout<<"-1"<<endl;}
-return 0;
+
+int main()
+{
+    ll r, l; 
+    cin >> l >> r;
+    if(r - l + 1 < 3) cout << "-1" << endl;
+    else if(l%2 == 0) cout << l << " " << l + 1 << " " << l + 2 << endl;
+    else if(r - l  + 1 > 3) cout << l + 1 << " " << l + 2 << " " << l + 3 << endl;
+    else cout << "-1" << endl;
+
+    return 0;
 }
